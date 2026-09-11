@@ -4,6 +4,11 @@ public class Account {
     public String ownerName;
     public double balance;
 
+    public Account(String ownerName, double balance) {
+        this.ownerName = ownerName;
+        this.balance = balance;
+    }
+
     public void deposit(double amount) {
         balance = balance + amount;
     }
