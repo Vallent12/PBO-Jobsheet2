@@ -1,40 +1,44 @@
 package id.ac.polinema;
 
 public class Account {
-    public String ownerName;
-    public double balance;
+    private String accountNumber;
+    private String ownerName;
+    private double balance;
 
-    public Account(String ownerName, double balance) {
+    public Account(String accountNumber, String ownerName, double balance) {
+        this.accountNumber = accountNumber;
         this.ownerName = ownerName;
         this.balance = balance;
     }
+    public String getAccountNumber() {
+        return accountNumber;
+    }
 
-    public void deposit(double amount) {
-        balance = balance + amount; 
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public boolean deposit(double amount) {
+        if (amount <= 0) {
+            return false;
+        } 
+        balance += amount;
+        return true;
     }   
 
-    public void withdraw(double amount){
-        balance = balance - amount;
-        if (isOverdrawn()) {
-            balance = balance + amount;
-            System.out.println("Withdrawal rejected: insufficient balance.");
+    public boolean withdraw(double amount){
+        if (amount <= 0 || amount > balance) {
+            return  false;
         }
+        balance -= amount;
+        return  true;
     }
 
     public void printInfo() {
-        System.out.println(ownerName + " - balance: " + balance);
-    }
-
-    public String formatBalance() {
-        return String.format("%,.2f", balance);
-    }
-
-    public boolean isOverdrawn() {
-        return balance < 0;
-    }
-
-    public void transferTo(Account target, double amount) {
-        this.withdraw(amount);
-        target.deposit(amount);
+        System.out.println(accountNumber + " - " + ownerName + " - balance: " + balance);
     }
 }
