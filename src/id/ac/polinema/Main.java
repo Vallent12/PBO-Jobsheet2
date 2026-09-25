@@ -2,9 +2,9 @@ package id.ac.polinema;
 
 public class Main {
     public static void main(String[] args) {
-       Account limited = new Account("A005", "Fajar", 1000000, 200000);
-        System.out.println("Withdraw 300000 allowed? " + limited.withdraw(300000));
-        System.out.println("Withdraw 150000 allowed? " + limited.withdraw(150000));
-        limited.printInfo();
+        Customer customer1 = new Customer("nadia", "0812-0000-0001");
+        Account aacl = new Account("A001", customer1, 500000 );
+        aacl.withdraw(150000);
+        aacl.printInfo();
     }
 }
