@@ -31,11 +31,15 @@ public class Account {
     }   
 
     public boolean withdraw(double amount){
-        if (amount <= 0 || amount > balance) {
+        if (!canWithdraw(amount)) {
             return  false;
         }
         balance -= amount;
         return  true;
+    }
+
+    protected boolean canWithdraw(double amount) {
+        return amount > 0 && amount <= balance;
     }
 
     public void printInfo() {
