@@ -30,6 +30,14 @@ public class Account {
         return true;
     }   
 
+    public boolean deposit(double amount, String note) {
+        if (!deposit(amount)) {
+            return false;
+        }
+        System.out.println(getAccountNumber() + " deposit note: " + note);
+        return true;
+    }
+
     public boolean withdraw(double amount){
         if (!canWithdraw(amount)) {
             return  false;
