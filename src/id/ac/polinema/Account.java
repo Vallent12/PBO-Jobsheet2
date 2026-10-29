@@ -1,6 +1,6 @@
 package id.ac.polinema;
 
-public class Account {
+public abstract class Account {
     private String accountNumber;
     private Customer owner;
     private double balance;
@@ -22,6 +22,8 @@ public class Account {
         return balance;
     }
 
+    public abstract double monthlyFee();
+    
     public boolean deposit(double amount) {
         if (amount <= 0) {
             return false;

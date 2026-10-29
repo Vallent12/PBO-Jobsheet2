@@ -53,4 +53,10 @@ public class Bank {
         }
     }
 
+    public void printMonthlyFees() {
+        for (int i = 0; i < count; i++) {
+            System.out.println(accounts[i].getAccountNumber() + " fee: " + accounts[i].monthlyFee());
+        }
+    }
+
 }

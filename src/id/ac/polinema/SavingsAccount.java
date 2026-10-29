@@ -13,6 +13,10 @@ public class SavingsAccount extends Account{
         return interestRate;
     }
 
+    public double monthlyFee() {
+        return 0;
+    }
+
     @Override 
     protected boolean canWithdraw(double amount) {
         return amount > 0 && (getBalance() - amount) >= MINIMUM_BALANCE;
