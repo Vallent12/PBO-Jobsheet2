@@ -17,6 +17,10 @@ public class Main {
         CheckingAccount checking = new CheckingAccount("A004", customer4, 100000, 200000);
         checking.withdraw(250000);
 
+        System.out.println("Before interest: " + savings.getBalance());
+        savings.applyInterest();
+        System.out.println("After interest: " + savings.getBalance());
+
         Bank bank = new Bank(10);
         bank.addAccount(acc1);
         bank.addAccount(acc2);

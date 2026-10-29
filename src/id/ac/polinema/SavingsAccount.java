@@ -1,6 +1,6 @@
 package id.ac.polinema;
 
-public class SavingsAccount extends Account{
+public class SavingsAccount extends Account implements InterestBearing {
     private static final double MINIMUM_BALANCE = 50000;
     private double interestRate;
     
@@ -26,5 +26,11 @@ public class SavingsAccount extends Account{
     public void printInfo() {
         super.printInfo();
         System.out.println("Account type: Savings, interest rate: " + interestRate);
+    }
+
+    @Override 
+    public void applyInterest() {
+        double interest = getBalance() * interestRate;
+        deposit(interest);
     }
 }
