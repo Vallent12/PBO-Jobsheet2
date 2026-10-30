@@ -40,12 +40,11 @@ public abstract class Account {
         return true;
     }
 
-    public boolean withdraw(double amount){
+    public void withdraw(double amount) throws InsufficientBalanceException {
         if (!canWithdraw(amount)) {
-            return  false;
+            throw new InsufficientBalanceException(accountNumber + ": insufficient balance for a withdrawal of " + amount);
         }
         balance -= amount;
-        return  true;
     }
 
     protected boolean canWithdraw(double amount) {
