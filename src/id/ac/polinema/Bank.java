@@ -69,4 +69,13 @@ public class Bank {
             System.out.println(acc.getAccountNumber() + " monthly fee: " + acc.monthlyFee());
         }
     }
+
+    public void printAuditLog() {
+        for (int i = 0; i < count; i++) {
+            Account acc = accounts[i];
+            if (acc instanceof Auditable auditable) {
+                System.out.println(auditable.auditLog());
+        }
+    }
+}
 }
